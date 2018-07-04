@@ -169,4 +169,4 @@
 	url = https://github.com/keyboardio/Kaleidoscope-HIDAdaptor-KeyboardioHID
 [submodule "libraries/FlashStorage"]
 	path = libraries/FlashStorage
-	url = https://github.com/cmaglie/FlashStorage
+	url = https://github.com/dygmalab/FlashStorage
