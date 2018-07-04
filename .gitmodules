@@ -170,3 +170,6 @@
 [submodule "libraries/FlashStorage"]
 	path = libraries/FlashStorage
 	url = https://github.com/dygmalab/FlashStorage
+[submodule "libraries/Kaleidoscope-AdjustableLatencyJitter"]
+	path = libraries/Kaleidoscope-AdjustableLatencyJitter
+	url = https://github.com/Dygmalab/Kaleidoscope-AdjustableLatencyJitter
