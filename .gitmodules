@@ -119,6 +119,7 @@
 [submodule "libraries/Kaleidoscope-EEPROM-Keymap"]
 	path = libraries/Kaleidoscope-EEPROM-Keymap
 	url = https://github.com/dygmalab/Kaleidoscope-EEPROM-Keymap
+    branch = arm
 [submodule "libraries/Kaleidoscope-EEPROM-Keymap-Programmer"]
 	path = libraries/Kaleidoscope-EEPROM-Keymap-Programmer
 	url = https://github.com/keyboardio/Kaleidoscope-EEPROM-Keymap-Programmer
