@@ -1,11 +1,11 @@
 [submodule "libraries/KeyboardioScanner"]
     path = libraries/KeyboardioScanner
     url = https://github.com/dygmalab/KeyboardioScanner
-	branch = arm
+	branch = samd-arm
 [submodule "libraries/KeyboardioHID"]
     path = libraries/KeyboardioHID
     url = https://github.com/Dygmalab/KeyboardioHID
-	branch = arm
+	branch = samd-arm
 [submodule "libraries/FingerprintUSBHost"]
     path = libraries/FingerprintUSBHost
     url = https://github.com/keyboardio/FingerprintUSBHost
@@ -115,6 +115,7 @@
 [submodule "libraries/Kaleidoscope-EEPROM-Settings"]
 	path = libraries/Kaleidoscope-EEPROM-Settings
 	url = https://github.com/dygmalab/Kaleidoscope-EEPROM-Settings
+    branch = arm
 [submodule "libraries/Kaleidoscope-EEPROM-Keymap"]
 	path = libraries/Kaleidoscope-EEPROM-Keymap
 	url = https://github.com/dygmalab/Kaleidoscope-EEPROM-Keymap
@@ -145,7 +146,7 @@
 [submodule "libraries/Kaleidoscope-Hardware-Raise"]
 	path = libraries/Kaleidoscope-Hardware-Raise
 	url = https://github.com/dygmalab/Kaleidoscope-Hardware-Raise
-	branch = samd-arm
+#	branch = samd-arm
 [submodule "libraries/Kaleidoscope-LEDEffect-DigitalRain"]
 	path = libraries/Kaleidoscope-LEDEffect-DigitalRain
 	url = https://github.com/Dygmalab/Kaleidoscope-LEDEffect-DigitalRain
