@@ -90,6 +90,7 @@
 [submodule "libraries/Kaleidoscope-LEDEffect-SolidColor"]
 	path = libraries/Kaleidoscope-LEDEffect-SolidColor
 	url = https://github.com/dygmalab/Kaleidoscope-LEDEffect-SolidColor
+	branch = samd-arm
 [submodule "libraries/Kaleidoscope-LEDEffect-Breathe"]
 	path = libraries/Kaleidoscope-LEDEffect-Breathe
 	url = https://github.com/keyboardio/Kaleidoscope-LEDEffect-Breathe
