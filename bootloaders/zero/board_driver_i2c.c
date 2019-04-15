@@ -19,7 +19,7 @@
 
 #include "board_driver_i2c.h"
 
-#ifdef CONFIGURE_PMIC
+#if defined(CONFIGURE_PMIC) || defined(CONFIGURE_RAISE_SIDE)
 
 /*- Definitions -------------------------------------------------------------*/
 #define I2C_SERCOM            SERCOM0
@@ -332,8 +332,8 @@ void i2c_init(uint32_t baud) {
   initMasterWIRE(baud);
   enableWIRE();
 
-  pin_set_peripheral_function(PINMUX_PA08C_SERCOM0_PAD0);
-  pin_set_peripheral_function(PINMUX_PA09C_SERCOM0_PAD1);
+  pin_set_peripheral_function(PINMUX_PA22C_SERCOM3_PAD0);
+  pin_set_peripheral_function(PINMUX_PA23C_SERCOM3_PAD1);
 }
 
 void i2c_end() {

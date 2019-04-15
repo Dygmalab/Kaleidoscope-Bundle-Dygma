@@ -54,6 +54,7 @@
 #define BOOT_USART_PAD1                   PINMUX_UNUSED
 #define BOOT_USART_PAD0                   PINMUX_UNUSED
 
+#define CONFIGURE_RAISE_SIDE
 
 /* Master clock frequency */
 #define CPU_FREQUENCY                     (48000000ul)

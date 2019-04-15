@@ -24,6 +24,7 @@
 #include "board_definitions.h"
 #include "board_driver_led.h"
 #include "board_driver_i2c.h"
+#include "raise_side_i2c.h"
 #include "sam_ba_usb.h"
 #include "sam_ba_cdc.h"
 
@@ -119,6 +120,13 @@ static void check_start_application(void)
   }
 #endif
 
+#ifdef CONFIGURE_RAISE_SIDE
+  // if read register shows special key is pressed
+	if(readSideBootloaderKey())
+	// stay in the bootloader
+		return;
+
+#endif
 /*
 #if defined(BOOT_LOAD_PIN)
   volatile PortGroup *boot_port = (volatile PortGroup *)(&(PORT->Group[BOOT_LOAD_PIN / 32]));
@@ -168,6 +176,10 @@ int main(void)
 #endif
   DEBUG_PIN_HIGH;
 
+#ifdef CONFIGURE_RAISE_SIDE
+  configureRaiseSide();	
+#endif
+
   /* Jump in application if condition is satisfied */
   check_start_application();
 
@@ -175,6 +187,7 @@ int main(void)
   /* System initialization */
   board_init();
   __enable_irq();
+
 
 #ifdef CONFIGURE_PMIC
   configure_pmic();

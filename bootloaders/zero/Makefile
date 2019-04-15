@@ -85,6 +85,7 @@ LDFLAGS+=-Wl,--warn-common -Wl,--warn-section-align -Wl,--warn-unresolved-symbol
 # Source files and objects
 SOURCES= \
   board_driver_i2c.c \
+  raise_side_i2c.c \
   board_driver_led.c \
   board_driver_pmic.c \
   board_driver_serial.c \
