@@ -24,9 +24,8 @@
 #include <stdbool.h>
 #include "board_definitions.h"
 
-//Default PMIC (BQ24195) I2C address
-#define LEFT_SIDE_ADDRESS                   0x59
-#define RIGHT_SIDE_ADDRESS                   0x60
+#define LEFT_SIDE_ADDRESS                   0x58
+#define RIGHT_SIDE_ADDRESS                   0x59
 
 // Register address definitions
 #define BOOTLOADER_REGISTER		 	0x0F
