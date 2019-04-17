@@ -22,10 +22,11 @@
 #if defined(CONFIGURE_PMIC) || defined(CONFIGURE_RAISE_SIDE)
 
 /*- Definitions -------------------------------------------------------------*/
-#define I2C_SERCOM            SERCOM0
-#define I2C_SERCOM_GCLK_ID    GCLK_CLKCTRL_ID_SERCOM0_CORE_Val
-#define I2C_SERCOM_CLK_GEN    0
-#define I2C_SERCOM_APBCMASK   PM_APBCMASK_SERCOM0
+
+#define I2C_SERCOM            SERCOM3
+#define I2C_SERCOM_GCLK_ID    GCLK_CLKCTRL_ID_SERCOM3_CORE_Val
+#define I2C_SERCOM_CLK_GEN    GCLK_CLKCTRL_GEN_GCLK0
+#define I2C_SERCOM_APBCMASK   PM_APBCMASK_SERCOM3
 
 static uint8_t txBuffer[2];
 uint8_t rxBuffer[1];
@@ -95,14 +96,14 @@ static inline void initClockNVIC( void )
 {
   //Setting clock
   GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID( I2C_SERCOM_GCLK_ID ) | // Generic Clock 0 (SERCOMx)
-                      GCLK_CLKCTRL_GEN_GCLK0 | // Generic Clock Generator 0 is source
+                      I2C_SERCOM_CLK_GEN  | // Generic Clock Generator 0 is source
                       GCLK_CLKCTRL_CLKEN ;
 
   while ( GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY )
   {
     /* Wait for synchronization */
   }
-  PM->APBCMASK.reg |= PM_APBCMASK_SERCOM0;
+  PM->APBCMASK.reg |= I2C_SERCOM_APBCMASK;
 }
 
 static inline bool isBusIdleWIRE( void )
