@@ -24,10 +24,11 @@
  * USB device definitions
  */
 #define STRING_PRODUCT "Raise Bootloader"
-#define USB_VID_HIGH   0x23
-#define USB_VID_LOW    0x41
-#define USB_PID_HIGH   0x00
-#define USB_PID_LOW    0x4D
+#define STRING_MANUFACTURER "Dygma"
+#define USB_VID_HIGH   0x12
+#define USB_VID_LOW    0x09
+#define USB_PID_HIGH   0x22
+#define USB_PID_LOW    0x00
 
 /*
  * If BOOT_DOUBLE_TAP_ADDRESS is defined the bootloader is started by
