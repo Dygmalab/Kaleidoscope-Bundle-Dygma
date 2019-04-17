@@ -28,7 +28,11 @@
 #define RIGHT_SIDE_ADDRESS                   0x59
 
 // Register address definitions
-#define BOOTLOADER_REGISTER		 	0x0F
+#define BOOTLOADER_REGISTER		 	0x05
+
+inline void SIDE_POWER_init(void) { PORT->Group[BOARD_SIDE_POWER_PORT].DIRSET.reg = (1<<BOARD_SIDE_POWER_PIN); }
+inline void SIDE_POWER_on(void) { PORT->Group[BOARD_SIDE_POWER_PORT].OUTSET.reg = (1<<BOARD_SIDE_POWER_PIN); }
+inline void SIDE_POWER_off(void) { PORT->Group[BOARD_SIDE_POWER_PORT].OUTCLR.reg = (1<<BOARD_SIDE_POWER_PIN); }
 
 void configureRaiseSide();
 bool readSideBootloaderKey();

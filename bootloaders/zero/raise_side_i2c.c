@@ -22,29 +22,43 @@
 
 #ifdef CONFIGURE_RAISE_SIDE
 
-extern uint8_t rxBuffer[1];
-
-uint8_t readRegister(uint8_t addr, uint8_t reg) {
-  i2c_beginTransmission(addr);
-  i2c_write(reg);
-  i2c_endTransmission(true);
-
-  i2c_requestFrom(LEFT_SIDE_ADDRESS, 1, true);
-  return rxBuffer[0];
-}
+extern uint8_t rxBuffer[6];
 
 bool readSideBootloaderKey()
 {
-	if(readRegister(LEFT_SIDE_ADDRESS, BOOTLOADER_REGISTER))
-		return true;
-	if(readRegister(RIGHT_SIDE_ADDRESS, BOOTLOADER_REGISTER))
-		return true;
+    i2c_beginTransmission(LEFT_SIDE_ADDRESS);
+    i2c_write(0x00); // read key
+    i2c_endTransmission(true);
 
+    i2c_requestFrom(LEFT_SIDE_ADDRESS, 6, true);
+    if(rxBuffer[0] == 1 && rxBuffer[1] == 1)
+        return true;
+
+    i2c_beginTransmission(RIGHT_SIDE_ADDRESS);
+    i2c_write(0x00); // read key
+    i2c_endTransmission(true);
+
+    i2c_requestFrom(RIGHT_SIDE_ADDRESS, 6, true);
+    if(rxBuffer[0] == 1 && rxBuffer[1] == 1)
+        return true;
+
+    SIDE_POWER_off();
     return false;
 }
+
 void configureRaiseSide()
 {
+  // turn on power to the sides
+  SIDE_POWER_init();
+  SIDE_POWER_on();
+
+  // initialise I2C
   i2c_init(100000);
+
+  // wait 50ms for things to settle
+  for (uint32_t i=0; i<12500; i++) /* 50ms */
+  /* force compiler to not optimize this... */
+     __asm__ __volatile__("");
 }
 
 #endif

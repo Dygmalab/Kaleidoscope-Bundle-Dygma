@@ -56,6 +56,10 @@
 
 #define CONFIGURE_RAISE_SIDE
 
+// power pin defs PA10
+#define BOARD_SIDE_POWER_PORT             (0)
+#define BOARD_SIDE_POWER_PIN              (10)
+
 /* Master clock frequency */
 #define CPU_FREQUENCY                     (48000000ul)
 #define VARIANT_MCK                       CPU_FREQUENCY
