@@ -17,7 +17,6 @@
 */
 
 #include <Arduino.h>
-#include <Reset.h> // Needed for auto-reset with 1200bps port touch
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -115,17 +114,6 @@ bool CDC_Setup(USBSetup& setup)
 
 		if (r == CDC_SET_LINE_CODING || r == CDC_SET_CONTROL_LINE_STATE)
 		{
-			// auto-reset into the bootloader is triggered when the port, already
-			// open at 1200 bps, is closed. We check DTR state to determine if host 
-			// port is open (bit 0 of lineState).
-			if (_usbLineInfo.dwDTERate == 1200 && (_usbLineInfo.lineState & 0x01) == 0)
-			{
-				initiateReset(250);
-			}
-			else
-			{
-				cancelReset();
-			}
 			return false;
 		}
 

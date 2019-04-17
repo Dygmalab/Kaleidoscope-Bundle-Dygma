@@ -71,7 +71,7 @@ raise_native.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
 raise_native.upload.tool=bossac
 raise_native.upload.protocol=sam-ba
 raise_native.upload.maximum_size=262144
-raise_native.upload.use_1200bps_touch=true
+raise_native.upload.use_1200bps_touch=false
 raise_native.upload.wait_for_upload_port=true
 raise_native.upload.native_usb=true
 raise_native.build.mcu=cortex-m0plus
@@ -86,7 +86,7 @@ raise_native.build.openocdscript=openocd_scripts/arduino_zero.cfg
 raise_native.build.variant=arduino_zero
 raise_native.build.variant_system_lib=
 raise_native.build.vid=0x1209
-raise_native.build.pid=0x2202
+raise_native.build.pid=0x2201
 raise_native.bootloader.tool=openocd
 raise_native.bootloader.file=zero/samd21_sam_ba.bin
 
