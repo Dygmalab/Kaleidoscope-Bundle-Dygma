@@ -23,7 +23,7 @@
 /*
  * USB device definitions
  */
-#define STRING_PRODUCT "Arduino Zero"
+#define STRING_PRODUCT "Raise Bootloader"
 #define USB_VID_HIGH   0x23
 #define USB_VID_LOW    0x41
 #define USB_PID_HIGH   0x00
@@ -71,12 +71,12 @@
  * LEDs definitions
  */
 #define BOARD_LED_PORT                    (0)
-#define BOARD_LED_PIN                     (17)
+#define BOARD_LED_PIN                     (8)
 
-#define BOARD_LEDRX_PORT                  (1)
-#define BOARD_LEDRX_PIN                   (3)
+#define BOARD_LEDRX_PORT                  (0)
+#define BOARD_LEDRX_PIN                   (9)
 
 #define BOARD_LEDTX_PORT                  (0)
-#define BOARD_LEDTX_PIN                   (27)
+#define BOARD_LEDTX_PIN                   (15)
 
 #endif // _BOARD_DEFINITIONS_H_
