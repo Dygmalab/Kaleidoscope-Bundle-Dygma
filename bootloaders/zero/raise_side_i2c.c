@@ -26,17 +26,10 @@ extern uint8_t rxBuffer[6];
 
 bool readSideBootloaderKey()
 {
-    i2c_beginTransmission(LEFT_SIDE_ADDRESS);
-    i2c_write(0x00); // read key
-    i2c_endTransmission(true);
-
+    // reads with no reg setup are a key read
     i2c_requestFrom(LEFT_SIDE_ADDRESS, 6, true);
     if(rxBuffer[0] == 1 && rxBuffer[1] == 1)
         return true;
-
-    i2c_beginTransmission(RIGHT_SIDE_ADDRESS);
-    i2c_write(0x00); // read key
-    i2c_endTransmission(true);
 
     i2c_requestFrom(RIGHT_SIDE_ADDRESS, 6, true);
     if(rxBuffer[0] == 1 && rxBuffer[1] == 1)
@@ -53,12 +46,7 @@ void configureRaiseSide()
   SIDE_POWER_on();
 
   // initialise I2C
-  i2c_init(100000);
-
-  // wait 50ms for things to settle
-  for (uint32_t i=0; i<12500; i++) /* 50ms */
-  /* force compiler to not optimize this... */
-     __asm__ __volatile__("");
+  i2c_init(200000);
 }
 
 #endif
