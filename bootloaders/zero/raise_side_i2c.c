@@ -39,7 +39,8 @@ bool readSideBootloaderKey()
 		return true;
 	if(readRegister(RIGHT_SIDE_ADDRESS, BOOTLOADER_REGISTER))
 		return true;
-	return false;
+
+    return false;
 }
 void configureRaiseSide()
 {
