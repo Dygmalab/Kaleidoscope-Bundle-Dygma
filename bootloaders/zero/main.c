@@ -122,9 +122,14 @@ static void check_start_application(void)
 
 #ifdef CONFIGURE_RAISE_SIDE
   // if read register shows special key is pressed
-	if(readSideBootloaderKey())
-	// stay in the bootloader
-		return;
+  // wait 50ms for things to settle
+  for (uint32_t i=0; i<62500; i++) /* 250ms */
+  /* force compiler to not optimize this... */
+     __asm__ __volatile__("");
+
+  if(readSideBootloaderKey())
+  // stay in the bootloader
+    return;
 
 #endif
 /*
