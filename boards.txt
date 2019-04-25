@@ -46,7 +46,7 @@ raise_edbg.bootloader.file=zero/samd21_sam_ba.bin
 
 # Arduino/Genuino Zero (Native USB Port)
 # ---------------------------------------
-raise_native.name=Arduino/Genuino Zero (Native USB Port)
+raise_native.name=Raise
 raise_native.vid.0=0x2341
 raise_native.pid.0=0x804d
 raise_native.vid.1=0x2341
