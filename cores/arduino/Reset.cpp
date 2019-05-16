@@ -50,6 +50,7 @@ static void banzai() {
 		goto reset;
 	}
 
+    /*
 	// Erase application
 	while (!nvmReady())
 		;
@@ -58,6 +59,7 @@ static void banzai() {
 	NVMCTRL->CTRLA.reg = NVMCTRL_CTRLA_CMD_ER | NVMCTRL_CTRLA_CMDEX_KEY;
 	while (!nvmReady())
 		;
+    */
 
 reset:
 	// Reset the device
