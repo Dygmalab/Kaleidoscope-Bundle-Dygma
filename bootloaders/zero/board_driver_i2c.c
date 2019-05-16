@@ -19,14 +19,13 @@
 
 #include "board_driver_i2c.h"
 
-#if defined(CONFIGURE_PMIC) || defined(CONFIGURE_RAISE_SIDE)
+#ifdef CONFIGURE_PMIC
 
 /*- Definitions -------------------------------------------------------------*/
-
-#define I2C_SERCOM            SERCOM3
-#define I2C_SERCOM_GCLK_ID    GCLK_CLKCTRL_ID_SERCOM3_CORE_Val
-#define I2C_SERCOM_CLK_GEN    GCLK_CLKCTRL_GEN_GCLK0
-#define I2C_SERCOM_APBCMASK   PM_APBCMASK_SERCOM3
+#define I2C_SERCOM            SERCOM0
+#define I2C_SERCOM_GCLK_ID    GCLK_CLKCTRL_ID_SERCOM0_CORE_Val
+#define I2C_SERCOM_CLK_GEN    0
+#define I2C_SERCOM_APBCMASK   PM_APBCMASK_SERCOM0
 
 static uint8_t txBuffer[2];
 uint8_t rxBuffer[1];
@@ -96,14 +95,14 @@ static inline void initClockNVIC( void )
 {
   //Setting clock
   GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID( I2C_SERCOM_GCLK_ID ) | // Generic Clock 0 (SERCOMx)
-                      I2C_SERCOM_CLK_GEN  | // Generic Clock Generator 0 is source
+                      GCLK_CLKCTRL_GEN_GCLK0 | // Generic Clock Generator 0 is source
                       GCLK_CLKCTRL_CLKEN ;
 
   while ( GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY )
   {
     /* Wait for synchronization */
   }
-  PM->APBCMASK.reg |= I2C_SERCOM_APBCMASK;
+  PM->APBCMASK.reg |= PM_APBCMASK_SERCOM0;
 }
 
 static inline bool isBusIdleWIRE( void )
@@ -333,8 +332,8 @@ void i2c_init(uint32_t baud) {
   initMasterWIRE(baud);
   enableWIRE();
 
-  pin_set_peripheral_function(PINMUX_PA22C_SERCOM3_PAD0);
-  pin_set_peripheral_function(PINMUX_PA23C_SERCOM3_PAD1);
+  pin_set_peripheral_function(PINMUX_PA08C_SERCOM0_PAD0);
+  pin_set_peripheral_function(PINMUX_PA09C_SERCOM0_PAD1);
 }
 
 void i2c_end() {

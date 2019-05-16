@@ -24,7 +24,6 @@
 #include "board_definitions.h"
 #include "board_driver_led.h"
 #include "board_driver_i2c.h"
-#include "raise_side_i2c.h"
 #include "sam_ba_usb.h"
 #include "sam_ba_cdc.h"
 
@@ -120,18 +119,6 @@ static void check_start_application(void)
   }
 #endif
 
-#ifdef CONFIGURE_RAISE_SIDE
-  // wait 500ms for side bootloader to finish and start application
-  // if read register shows special key is pressed
-  for (uint32_t i=0; i<125000; i++) /* 500 */
-  /* force compiler to not optimize this... */
-     __asm__ __volatile__("");
-
-  if(readSideBootloaderKey())
-  // stay in the bootloader
-    return;
-
-#endif
 /*
 #if defined(BOOT_LOAD_PIN)
   volatile PortGroup *boot_port = (volatile PortGroup *)(&(PORT->Group[BOOT_LOAD_PIN / 32]));
@@ -181,10 +168,6 @@ int main(void)
 #endif
   DEBUG_PIN_HIGH;
 
-#ifdef CONFIGURE_RAISE_SIDE
-  configureRaiseSide();	
-#endif
-
   /* Jump in application if condition is satisfied */
   check_start_application();
 
@@ -192,7 +175,6 @@ int main(void)
   /* System initialization */
   board_init();
   __enable_irq();
-
 
 #ifdef CONFIGURE_PMIC
   configure_pmic();
