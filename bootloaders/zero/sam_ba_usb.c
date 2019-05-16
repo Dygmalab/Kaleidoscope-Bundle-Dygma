@@ -148,11 +148,11 @@ char cfgDescriptor[] =
 };
 
 #ifndef STRING_MANUFACTURER
-#  define STRING_MANUFACTURER "Arduino LLC"
+#  define STRING_MANUFACTURER "Dygma"
 #endif
 
 #ifndef STRING_PRODUCT
-#  define STRING_PRODUCT "Arduino Zero"
+#  define STRING_PRODUCT "Raise Bootloader"
 #endif
 
 USB_CDC sam_ba_cdc;
