@@ -175,3 +175,9 @@
 [submodule "libraries/Kaleidoscope-LEDEffect-Joint"]
 	path = libraries/Kaleidoscope-LEDEffect-Joint
 	url = https://github.com/Dygmalab/Kaleidoscope-LEDEffect-Joint.git
+[submodule "libraries/Adafruit_ASFcore"]
+	path = libraries/Adafruit_ASFcore
+	url = https://github.com/adafruit/Adafruit_ASFcore.git
+[submodule "libraries/Adafruit_SleepyDog"]
+	path = libraries/Adafruit_SleepyDog
+	url = https://github.com/adafruit/Adafruit_SleepyDog.git
