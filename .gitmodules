@@ -147,7 +147,7 @@
 [submodule "libraries/Kaleidoscope-Hardware-Raise"]
 	path = libraries/Kaleidoscope-Hardware-Raise
 	url = https://github.com/dygmalab/Kaleidoscope-Hardware-Raise
-#	branch = samd-arm
+	branch = .
 [submodule "libraries/Kaleidoscope-LEDEffect-DigitalRain"]
 	path = libraries/Kaleidoscope-LEDEffect-DigitalRain
 	url = https://github.com/Dygmalab/Kaleidoscope-LEDEffect-DigitalRain
