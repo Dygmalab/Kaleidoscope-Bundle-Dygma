@@ -56,6 +56,7 @@
 #define BOOT_USART_PAD0                   PINMUX_UNUSED
 
 #define CONFIGURE_RAISE_SIDE
+#define SAM_BA_INTERFACE    SAM_BA_USBCDC_ONLY
 
 // power pin defs PA10
 #define BOARD_SIDE_POWER_PORT             (0)
