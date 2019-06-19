@@ -50,6 +50,7 @@ static void banzai() {
 		goto reset;
 	}
 
+    /*
 	// Erase application
     /*
 	while (!nvmReady())

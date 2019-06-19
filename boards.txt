@@ -28,8 +28,8 @@ raise_edbg.upload.wait_for_upload_port=false
 raise_edbg.upload.native_usb=false
 raise_edbg.build.mcu=cortex-m0plus
 raise_edbg.build.f_cpu=48000000L
-raise_edbg.build.usb_product="Arduino Zero"
-raise_edbg.build.usb_manufacturer="Arduino LLC"
+raise_edbg.build.usb_product="Raise Bootloader"
+raise_edbg.build.usb_manufacturer="Dygma"
 raise_edbg.build.board=SAMD_ZERO
 raise_edbg.build.core=arduino
 raise_edbg.build.extra_flags=-g3  -D__SAMD21G18A__ {build.usb_flags} -DKALEIDOSCOPE_HARDWARE_H="Kaleidoscope-Hardware-Raise.h"
@@ -46,11 +46,11 @@ raise_edbg.bootloader.file=zero/samd21_sam_ba.bin
 
 # Arduino/Genuino Zero (Native USB Port)
 # ---------------------------------------
-raise_native.name=Raise
+raise_native.name=Arduino/Genuino Zero (Native USB Port)
 raise_native.vid.0=0x2341
 raise_native.pid.0=0x804d
-raise_native.vid.1=0x2341
-raise_native.pid.1=0x004d
+raise_native.vid.1=0x1209
+raise_native.pid.1=0x2201
 
 raise_native.vid.2=0x2341
 raise_native.pid.2=0x824d
@@ -71,13 +71,13 @@ raise_native.vid.3.bootloader.file=zero/samd21_sam_ba_genuino.bin
 raise_native.upload.tool=bossac
 raise_native.upload.protocol=sam-ba
 raise_native.upload.maximum_size=262144
-raise_native.upload.use_1200bps_touch=true
+raise_native.upload.use_1200bps_touch=false
 raise_native.upload.wait_for_upload_port=true
 raise_native.upload.native_usb=true
 raise_native.build.mcu=cortex-m0plus
 raise_native.build.f_cpu=48000000L
-raise_native.build.usb_product="Arduino Zero"
-raise_native.build.usb_manufacturer="Arduino LLC"
+raise_native.build.usb_product="Dygma"
+raise_native.build.usb_manufacturer="Raise"
 raise_native.build.board=SAMD_ZERO
 raise_native.build.core=arduino
 raise_native.build.extra_flags=-g3 -D__SAMD21G18A__ {build.usb_flags} -DKALEIDOSCOPE_HARDWARE_H="Kaleidoscope-Hardware-Raise.h"
@@ -86,7 +86,7 @@ raise_native.build.openocdscript=openocd_scripts/arduino_zero.cfg
 raise_native.build.variant=arduino_zero
 raise_native.build.variant_system_lib=
 raise_native.build.vid=0x1209
-raise_native.build.pid=0x2202
+raise_native.build.pid=0x2201
 raise_native.bootloader.tool=openocd
 raise_native.bootloader.file=zero/samd21_sam_ba.bin
 
