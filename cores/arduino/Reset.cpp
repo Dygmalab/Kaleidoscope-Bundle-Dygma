@@ -52,6 +52,7 @@ static void banzai() {
 
     /*
 	// Erase application
+    /*
 	while (!nvmReady())
 		;
 	NVMCTRL->STATUS.reg |= NVMCTRL_STATUS_MASK;
