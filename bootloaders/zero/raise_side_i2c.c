@@ -26,7 +26,7 @@ extern uint8_t rxBuffer[6];
 
 bool readSideBootloaderKey()
 {
-    // reads with no reg setup are a key read
+    // reads with no reg setup are a key read. This also doesn't calculate or check the checksum
     for( int i = 0; i < 10; i ++ )
     {
     i2c_requestFrom(LEFT_SIDE_ADDRESS, 6, true);
