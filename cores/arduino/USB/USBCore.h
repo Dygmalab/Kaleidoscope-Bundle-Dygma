@@ -101,7 +101,7 @@
 // bMaxPower in Configuration Descriptor
 #define USB_CONFIG_POWER_MA(mA)                ((mA)/2)
 #ifndef USB_CONFIG_POWER
- #define USB_CONFIG_POWER                      (50)
+ #define USB_CONFIG_POWER                      (500)
 #endif
 
 #define CDC_V1_10                               0x0110
