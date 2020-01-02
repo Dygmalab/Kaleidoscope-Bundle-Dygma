@@ -76,8 +76,8 @@ raise_native.upload.wait_for_upload_port=true
 raise_native.upload.native_usb=true
 raise_native.build.mcu=cortex-m0plus
 raise_native.build.f_cpu=48000000L
-raise_native.build.usb_product="Dygma"
-raise_native.build.usb_manufacturer="Raise"
+raise_native.build.usb_product="Raise"
+raise_native.build.usb_manufacturer="Dygma"
 raise_native.build.board=SAMD_RAISE
 raise_native.build.core=arduino
 raise_native.build.extra_flags=-g3 -D__SAMD21G18A__ {build.usb_flags} -DKALEIDOSCOPE_HARDWARE_H="Kaleidoscope-Hardware-Dygma-Raise.h" -DEEPROM_EMULATION_SIZE=8192 -DUSB_DEVICE_LPM_SUPPORT=1
