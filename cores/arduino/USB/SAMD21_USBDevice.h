@@ -253,8 +253,6 @@ public:
 	}
 
 	virtual ~DoubleBufferedEPOutHandler() {
-		free((void*)data0);
-		free((void*)data1);
 	}
 
 	virtual uint32_t recv(void *_data, uint32_t len)
