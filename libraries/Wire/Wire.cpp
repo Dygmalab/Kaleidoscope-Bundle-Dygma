@@ -133,10 +133,8 @@ uint8_t TwoWire::endTransmission(bool stopBit)
     return 2 ;  // Address error
   }
 
-  uint16_t looplimit = 0;
-
   // Send all buffer
-  while( txBuffer.available() && 300>looplimit)
+  while( txBuffer.available() )
   {
     // Trying to send data
     if ( !sercom->sendDataMasterWIRE( txBuffer.read_char() ) )
@@ -144,9 +142,7 @@ uint8_t TwoWire::endTransmission(bool stopBit)
       sercom->prepareCommandBitsWire(WIRE_MASTER_ACT_STOP);
       return 3 ;  // Nack or error
     }
-    looplimit++;
   }
-  if ( looplimit >= 300 ) return 3;
   
   if (stopBit)
   {
